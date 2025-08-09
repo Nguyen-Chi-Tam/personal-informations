@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Personal Informations</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Playfair+Display:wght@400;700&display=swap"
+    rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      background: #f7e3d6;
+      font-family: 'Montserrat', Arial, sans-serif;
+      color: #3a2c1a;
+    }
+
+    .container {
+      display: flex;
+      min-height: fit-content;
+      align-items: center;
+      justify-content: center;
+      padding: 40px 0;
+      padding-left: 100px;
+      margin-left: 20px;
+      /* This will move the whole container 20px to the right */
+    }
+
+    .left {
+      flex: 1.2;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+
+    .circle-bg {
+      background: #f3e0d2;
+      border-radius: 50%;
+      width: 520px;
+      height: 520px;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 1;
+    }
+
+    .profile-img {
+      position: absolute;
+      top: 50%;
+      width: 520px;
+      height: 520px;
+      border-radius: 50%;
+      object-fit: cover;
+      transform: translateY(-50%);
+      z-index: 2;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+    }
+
+    .right {
+      flex: 1.5;
+      padding-left: 60px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .email-link {
+      color: #c98c5e;
+      text-decoration: none;
+      font-size: 1rem;
+      letter-spacing: 1px;
+      font-weight: 500;
+      margin-bottom: 18px;
+      display: inline-block;
+      border-bottom: 1px solid #c98c5e;
+    }
+
+    .name {
+      font-family: 'Playfair Display', serif;
+      font-size: 3rem;
+      font-weight: 400;
+      margin: 0 0 10px 0;
+      line-height: 1.1;
+    }
+
+    .pronouns {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.2rem;
+      font-weight: 400;
+      margin: 0 0 18px 0;
+      line-height: 1.1;
+    }
+
+    .title {
+      color: #c98c5e;
+      font-size: 1.1rem;
+      letter-spacing: 2px;
+      font-weight: 600;
+      margin-bottom: 18px;
+      text-transform: uppercase;
+    }
+
+    .divider {
+      border: none;
+      border-top: 2px solid #e7cdb7;
+      margin: 18px 0 18px 0;
+      width: 100%;
+      padding-left: 100px;
+    }
+
+    .about-title {
+      font-size: 1.1rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      margin-bottom: 8px;
+    }
+
+    .about-text {
+      font-size: 1.08rem;
+      line-height: 1.7;
+      margin-bottom: 32px;
+      color: #3a2c1a;
+      max-width: 520px;
+    }
+
+    .bottom-content {
+      padding-left: 100px;
+    }
+
+    .button-row {
+      display: flex;
+      gap: 24px;
+      margin-bottom: 32px;
+    }
+
+    .btn {
+      background: #c98c5e;
+      color: #fff;
+      border: none;
+      padding: 16px 48px;
+      font-size: 1rem;
+      font-weight: 600;
+      border-radius: 4px;
+      cursor: pointer;
+      letter-spacing: 2px;
+      transition: background 0.2s;
+      text-decoration: none;
+      text-align: center;
+    }
+
+    .btn:hover {
+      background: #a96e44;
+    }
+
+    .social-row {
+      display: flex;
+      gap: 24px;
+      margin-top: 24px;
+      margin-left: 12px;
+    }
+
+    .social-row a {
+      color: #c98c5e;
+      font-size: 1.6rem;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .social-row a:hover {
+      color: #a96e44;
+    }
+
+    .list-title {
+      font-weight: 700;
+      font-size: 1.1rem;
+      margin-bottom: 8px;
+    }
+
+    .list-item {
+      font-size: 1.08rem;
+      font-weight: bold;
+      line-height: 1.7;
+      margin-bottom: 12px;
+      padding-left: 12px;
+    }
+
+    .sub-item {
+      padding-left: 24px;
+      font-size: 1rem;
+      line-height: 1.5;
+      margin-left: 20px;
+      font-weight: 400;
+      color: #3a2c1a;
+    }
+
+    .quote-text {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem;
+      font-style: italic;
+      line-height: 1.5;
+      margin-top: 20px;
+      padding-left: 12px;
+    }
+
+    @media (max-width: 1100px) {
+      .container {
+        flex-direction: column;
+        padding: 24px 0;
+      }
+
+      .left,
+      .right {
+        padding: 0;
+        width: 100%;
+        justify-content: center;
+      }
+
+      .right {
+        padding-left: 0;
+        margin-top: 32px;
+      }
+
+      .circle-bg {
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+    }
+
+    @media (max-width: 700px) {
+      .container {
+        flex-direction: column;
+        padding: 0;
+      }
+
+      .profile-img {
+        width: 90vw;
+        max-width: 340px;
+      }
+
+      .circle-bg {
+        width: 320px;
+        height: 320px;
+      }
+
+      .right {
+        padding-left: 0;
+      }
+
+      .name {
+        font-size: 2.1rem;
+      }
+
+      .pronouns {
+        font-size: 1.3rem;
+      }
+    }
+  </style>
+  <!-- Font Awesome for social icons -->
+  <script src="https://kit.fontawesome.com/7c8e6e4b2b.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+  <div class="container">
+    <div class="left">
+      <div class="circle-bg"></div>
+      <img
+        src="https://static.vecteezy.com/system/resources/previews/009/292/244/non_2x/default-avatar-icon-of-social-media-user-vector.jpg"
+        alt="Chair and side table" class="profile-img">
+    </div>
+    <div class="right">
+      <a href="https://gmail.com" class="email-link">EMAIL ME: fegeltronics@gmail.com</a>
+      <div class="name">Nguyễn Chí Tâm</div>
+      <div class="pronouns">(he/him)</div>
+      <div class="title">IT STUDENT AT DALAT UNIVERSITY</div>
+      <hr class="divider">
+      <div class="about-title">ABOUT ME</div>
+      <div class="about-text">
+        I am an IT student at Dalat University, specializing in software development and web design. I have a passion
+        for creating user-friendly applications and websites that enhance the user experience. My goal is to combine my
+        technical skills with creativity to deliver innovative solutions.
+      </div>
+
+      <div class="social-row">
+        <a href="https://www.instagram.com/qsd8gen1/"><img
+            src="https://cdn4.iconfinder.com/data/icons/social-messaging-ui-color-shapes-2-free/128/social-instagram-new-circle-512.png"
+            alt="Instagram" style="height: 32px; width: 32px; object-fit: contain; vertical-align: middle;"></a>
+        <a href="https://x.com"><img
+            src="https://cdn4.iconfinder.com/data/icons/social-media-icons-the-circle-set/48/twitter_circle-512.png"
+            alt="Twitter" style="height: 32px; width: 32px; object-fit: contain; vertical-align: middle;"></a>
+        <a href="https://www.facebook.com/nguyen.chi.tam.418729/"><img
+            src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Facebook_Logo_%282019%29.png/500px-Facebook_Logo_%282019%29.png"
+            alt="Facebook" style="height: 32px; width: 32px; object-fit: contain; vertical-align: middle;"></a>
+        <a href="https://github.com/Nguyen-Chi-Tam"><img src="https://cdn-icons-png.flaticon.com/256/25/25231.png"
+            alt="GitHub" style="height: 32px; width: 32px; object-fit: contain; vertical-align: middle;"></a>
+      </div>
+    </div>
+  </div>
+  <div class="bottom-content">
+    <hr class="divider">
+
+    <div class="about-title">PROESSIONAL SKILLS</div>
+    <div class="about-text">
+      <div class="sub-item">Programming Language: HTML, CSS, JavaScript, Python, C#, Java</div>
+      <div class="sub-item">Tools & Framework: React, Node.js, Figma, Git</div>
+      <div class="sub-item">Database: SQL, SQLite, MongoDB</div>
+      <div class="sub-item">UI/UX Design: Wireframing, Prototyping, Responsive Design</div>
+    </div>
+
+    <div class="about-title">LANGUAGE</div>
+    <div class="about-text">
+      <div class="sub-item">Vietnamese (native)</div>
+      <div class="sub-item">English (proficient in communication, able to read technical documentst)</div>
+    </div>
+    <div class="about-title">ADDITIONAL SKILLS</div>
+    <div class="list-item">Teamwork
+      <div class="sub-item">Able to coordinate effectively with team members to complete projects on time.</div>
+      <div class="sub-item">Frequently participates in school and freelance group projectsa</div>
+    </div>
+    <div class="list-item">Communication
+      <div class="sub-item">Able to communicate clearly and effectively with team members and clients.</div>
+      <div class="sub-item">Able to present ideas and solutions in a clear and concise manner.</div>
+      <div class="sub-item">Skilled in writing professional emails and progress reports.</div>
+    </div>
+    <div class="list-item">Problem Solving
+      <div class="sub-item">Able to analyze and solve problems quickly and effectively.</div>
+      <div class="sub-item">Able to identify and implement solutions to improve project efficiency.</div>
+    </div>
+    <div class="list-item"> Time Management
+      <div class="sub-item">Able to prioritize tasks and manage time effectively to meet deadlines.</div>
+      <div class="sub-item">Able to work independently and manage multiple tasks simultaneously.</div>
+    </div>
+    <div class="list-item">Adaptability
+      <div class="sub-item">Able to adapt to new technologies and tools quickly.</div>
+      <div class="sub-item">Able to learn and apply new skills in a short period of time.</div>
+    </div>
+    <div class="list-item">Attention to Detail
+      <div class="sub-item">Able to ensure high quality and accuracy in all work.</div>
+      <div class="sub-item">Skilled in reviewing and testing code to identify and fix errors.</div>
+    </div>
+    <div class="list-item">Creativity
+      <div class="sub-item">Able to think outside the box and come up with innovative solutions.</div>
+      <div class="sub-item">Skilled in designing user-friendly interfaces and experiences.</div>
+    </div>
+  
+  <div class="about-title">FAVOURITE QUOTES</div>
+  <div class="quote-text">
+    “Code is not just a tool, but a way to tell a digital story.”
+  </div>
+  </hr>
+</div>
+  </div>
+</body>
+
+</html>
