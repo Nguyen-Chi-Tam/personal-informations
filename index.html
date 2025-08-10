@@ -37,8 +37,8 @@
     .circle-bg {
       background: #f3e0d2;
       border-radius: 50%;
-      width: 520px;
-      height: 520px;
+      width: 320px;
+      height: 320px;
       position: absolute;
       top: 50%;
       transform: translateY(-50%);
@@ -48,8 +48,8 @@
     .profile-img {
       position: absolute;
       top: 50%;
-      width: 520px;
-      height: 520px;
+      width: 320px;
+      height: 320px;
       border-radius: 50%;
       object-fit: cover;
       transform: translateY(-50%);
@@ -206,24 +206,73 @@
     @media (max-width: 1100px) {
       .container {
         flex-direction: column;
-        padding: 24px 0;
+        align-items: center;
+        margin-right: 12px;
+        padding-right: 60px;
       }
 
-      .left,
-      .right {
-        padding: 0;
-        width: 100%;
-        justify-content: center;
+      .left {
+        order: -1;
+        /* Put the image above the text */
+        margin-bottom: 20px;
       }
 
-      .right {
-        padding-left: 0;
-        margin-top: 32px;
+      .profile-img {
+        width: 90vw;
+        max-width: 320px;
+        height: auto;
+        position: static;
+        /* Remove absolute positioning */
+        transform: none;
+        /* Remove centering transform */
       }
-
       .circle-bg {
-        left: 50%;
-        transform: translate(-50%, -50%);
+        width: 320px;
+        height: 320px;
+      }
+
+      .right {
+        text-align: center;
+        padding-left: 0;
+      }
+
+      .about-text,
+      .list-item {
+        text-align: center;
+        max-width: none;
+      }
+
+      .sub-item {
+        text-align: left;
+        margin: 0 auto;
+        max-width: 520px;
+        padding-left: 0;
+      }
+
+      .name,
+      .pronouns,
+      .title,
+      .about-title {
+        text-align: center;
+      }
+
+      .email-link {
+        display: block;
+        text-align: center;
+      }
+
+
+      .divider {
+        padding-left: 0;
+      }
+
+      .bottom-content {
+        padding-left: 0;
+      }
+
+      .social-row {
+        justify-content: center;
+        margin-left: 0;
       }
     }
 
@@ -254,9 +303,14 @@
       .pronouns {
         font-size: 1.3rem;
       }
+
+      .sub-item,
+      .list-item {
+        padding-left: 0;
+        margin-left: 0;
+      }
     }
   </style>
-  <!-- Font Awesome for social icons -->
   <script src="https://kit.fontawesome.com/7c8e6e4b2b.js" crossorigin="anonymous"></script>
 </head>
 
@@ -342,13 +396,13 @@
       <div class="sub-item">Able to think outside the box and come up with innovative solutions.</div>
       <div class="sub-item">Skilled in designing user-friendly interfaces and experiences.</div>
     </div>
-  
-  <div class="about-title">FAVOURITE QUOTES</div>
-  <div class="quote-text">
-    “Code is not just a tool, but a way to tell a digital story.”
+
+    <div class="about-title">FAVOURITE QUOTES</div>
+    <div class="quote-text">
+      “Code is not just a tool, but a way to tell a digital story.”
+    </div>
+    </hr>
   </div>
-  </hr>
-</div>
   </div>
 </body>
 
